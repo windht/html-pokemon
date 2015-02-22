@@ -14,15 +14,15 @@ The downside is that the map is limited to a small area (you can move all along 
 Just write pure JSON and make maps through tiled maps, and you create your own game!
 
 # What we have now
-Movements
-Map transitions
-Dialogs
+-Movements
+-Map transitions
+-Dialogs
 
 # TODO
-Menu
-Save system
-EnemySystem
-PokeMon system
-Battle system
+-Menu
+-Save system
+-EnemySystem
+-PokeMon system
+-Battle system
 
-To be continued
+# To be continued
