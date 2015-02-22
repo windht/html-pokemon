@@ -1,0 +1,26 @@
+<ion-content
+  class="card-container"
+  scroll="false"
+>
+	<div class="time-filter"></div>
+	<div class="map"
+		ng-style="{left:Transform.coorToPos('X',Player.coorX)+'px',top:Transform.coorToPos('Y',Player.coorY)+'px',width:Map.width*32+'px',height:Map.height*32+'px'}"
+	>
+		<div class="building"></div>
+		<div class="player" 
+	        ng-class="{'up':Player.direction==1,'right':Player.direction==2,'down':Player.direction==3,'left':Player.direction==4,'moving':Player.moving}"
+	        ng-style="{left:Transform.peopleCoorToPos('X',Player.coorX)+'px',top:Transform.peopleCoorToPos('Y',Player.coorY)+'px'}"
+	    >
+	    	<!-- <div class="player-head ion-alert"></div> -->
+		</div>
+		<div class="player" ng-repeat="npc in NPC.people track by npc.hash" 
+		ng-style="{top:Transform.peopleCoorToPos('Y',npc.coorY)+'px',left:Transform.peopleCoorToPos('X',npc.coorX)+'px',backgroundImage:'url(img/'+npc.image+'.png)',zIndex:compareY(npc.coorY)}"
+		ng-class="{'up':npc.direction==1,'right':npc.direction==2,'down':npc.direction==3,'left':npc.direction==4}"
+		>
+			<div class="conversation-box" ng-class="{'show':npc.talk==true}">
+				{{npc.text}}
+			</div>
+		</div>
+
+	</div>
+</ion-content>

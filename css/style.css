@@ -1,0 +1,456 @@
+/* Empty. Add your own CSS if you like */
+
+/*Angular TypeWrite*/
+@-webkit-keyframes blink-it{0%{opacity:1}50%{opacity:0}100%{opacity:1}}@keyframes blink-it{0%{opacity:1}50%{opacity:0}100%{opacity:1}}.blink{-webkit-animation:blink-it steps(1) 1s infinite;animation:blink-it steps(1) 1s infinite}
+
+/*Main*/
+
+
+
+.xeeplan-tab {
+	bottom: 0px;
+	background: #27A677;
+	color: white;
+}
+
+.mask {
+	position: absolute;
+	z-index: 19;
+	top: 0;
+	left: 0;
+	transition:opacity 0.5s linear;
+	-webkit-transition:opacity 0.5s linear;
+	width: 100%;
+	height: 100%;
+	background: black;
+	color: white;
+	opacity: 0;	
+	text-align: center;
+}
+
+.mask.show {
+	opacity: 1;
+
+	transition:opacity 0.5s linear;
+	-webkit-transition:opacity 0.5s linear;
+}
+
+.mask .sentence {
+	position: relative;
+}
+
+.conversation-box {
+	position: absolute;
+	height: 50px;
+	width: 200px;
+	opacity: 0;
+	top: -55px;
+	left: -85px;
+	border-radius: 10px;
+	background: white;;
+	border:1px solid black;
+	text-align: left;
+	padding: 5px;
+	transition:opacity 0.5s linear;
+	-webkit-transition:opacity 0.5s linear;
+}
+
+.player-head {
+	padding: 4px;
+  	font-size: 22px;
+  	position: absolute;
+  	top: -33px;
+	width: 32px;
+	height: 32px;
+	background: white;
+	color: red;
+	border:1px solid black;
+}
+
+.conversation-box.show {
+	opacity: 1;
+}
+
+.conversation-box:before {
+	content:'';
+	position: absolute;
+	bottom: -10px;
+ 	left: 90px;
+	height:0px;
+	width:0px;
+	border-top:solid 10px white;
+	border-left:solid 10px rgba(0,0,0,0); 
+	border-right:solid 10px rgba(0,0,0,0); 
+}
+
+.controllers {
+	width: 100%;
+	height: 40%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+}
+
+.direction-controller {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	text-align: center;
+}
+
+.direction-controller > div {
+	position: absolute;
+	font-size: 50px;
+	color: white;
+}
+
+.controll-up {
+	left: 50%;
+	top: 0
+}
+
+.controll-down {
+	left: 50%;
+	top: 66.66%
+}
+
+.controll-left {
+	left: 30%;
+	top: 33.33%
+}
+
+.controll-right {
+	left: 70%;
+	top: 33.33%
+}
+
+
+.player-pos {
+	z-index: 20;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	height: 64px;
+	top: 50%;
+	margin-top: -32px;
+}
+
+.point {
+	width: 32px;
+	height: 48px;
+	display: block;
+	margin: 0 auto;
+	background: black;
+}
+
+.player {
+	transition:top 0.1s linear,left 0.1s linear;
+	display: block;
+	z-index: 15;
+	width: 32px;
+	height: 48px;
+	position: absolute;
+	background-image:url(../img/player.png) ;
+	background-repeat:no-repeat;
+}
+
+.player.down {
+	background-position: 0px -4px;
+}
+
+.player.left {
+	background-position: 0px -52px;
+}
+
+.player.right {
+	background-position: 0px -100px;
+}
+
+.player.up {
+	background-position: 0px -152px;
+}
+
+.player.moving.up {
+	-webkit-animation-name: bgChangeUp;
+	-webkit-animation-timing-function:steps(1,end);
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: normal;
+}
+
+.player.moving.down {
+	-webkit-animation-name: bgChangeDown;
+	-webkit-animation-timing-function:steps(1,end);
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: normal;
+}
+
+.player.moving.left {
+	-webkit-animation-name: bgChangeLeft;
+	-webkit-animation-timing-function:steps(1,end);
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: normal;
+}
+
+.player.moving.right {
+	-webkit-animation-name: bgChangeRight;
+	-webkit-animation-timing-function:steps(1,end);
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: normal;
+}
+
+@-webkit-keyframes bgChangeUp {
+  0% {
+  	background-position: 0px -152px;
+  } 
+  25% {
+  	background-position: -32px -152px;
+  }
+  50% {
+    background-position: -64px -152px;
+  }
+  75% {
+  	background-position: -96px -152px;
+  }
+  100% {
+  	background-position: 0px -152px;
+  }
+}
+
+@-webkit-keyframes bgChangeDown {
+  0% {
+  	background-position: 0px -4px;
+  } 
+  25% {
+  	background-position: -32px -4px;
+  }
+  50% {
+    background-position: -64px -4px;
+  }
+  75% {
+  	background-position: -96px -4px;
+  }
+  100% {
+  	background-position: 0px -4px;
+  }
+}
+
+@-webkit-keyframes bgChangeLeft {
+  0% {
+  	background-position: 0px -52px;
+  } 
+  25% {
+  	background-position: -32px -52px;
+  }
+  50% {
+    background-position: -64px -52px;
+  }
+  75% {
+  	background-position: -96px -52px;
+  }
+  100% {
+  	background-position: 0px -52px;
+  }
+}
+
+@-webkit-keyframes bgChangeRight {
+  0% {
+  	background-position: 0px -100px;
+  } 
+  25% {
+  	background-position: -32px -100px;
+  }
+  50% {
+    background-position: -64px -100px;
+  }
+  75% {
+  	background-position: -96px -100px;
+  }
+  100% {
+  	background-position: 0px -100px;
+  }
+}
+
+.card-container {
+	height: 101%;
+	padding-top: 0px;
+	text-align: center;
+	overflow: hidden;
+	background: black;
+}
+
+.time-filter {
+	position: absolute;
+	z-index: 19;
+	width: 100%;
+	height: 100%;
+	background: blue;
+	opacity: 0.1;
+}
+
+.map {
+	transition:all 0.1s linear;
+	z-index: 10;
+	position: absolute;
+	background-image:url(../img/borntown.png) ;
+	background-repeat:no-repeat;
+}
+
+.building {
+	position: relative;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	background-image:url(../img/borntown-building.png) ;
+	background-repeat:no-repeat;
+}
+
+ion-content .scroll {
+	height: 100%;
+}
+
+.time-title {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	color: #028F79;
+	font-size: 30px;
+	padding: 10px 0;
+	border-bottom: 1px solid #2AB28A;
+	transition:all 0.3s linear;
+}
+
+.time-title.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.time-wrapper {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 20px;
+	height: 75px;
+	transition:all 0.2s linear;
+	position: relative;
+	width: 90%;
+	height: 150px;
+	
+}
+
+.time-wrapper.small {
+	height: 80px;
+}
+
+.time-wrapper.open {
+	box-shadow: 0px 2px 5px #ABABAB;
+	
+}
+
+.time-wrapper .task-input {
+	text-align: center;
+}
+.time-wrapper.open .task-input {
+	text-align: left;
+}
+
+.time-wrapper.small .task-input {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.time-indicator {
+	width: 75px;
+	height: 75px;
+	text-align: center;
+	border-radius: 50px;
+	background: #27A677;
+	font-size: 25px;
+	padding-top: 25px;
+	position: absolute;
+	color: white;
+	left: 50%;
+	margin-left: -37.5px;
+	transition:all 0.2s linear;
+}
+
+.time-indicator.open {
+	left:50px;
+}
+
+.time-indicator.small {
+	width: 50px;
+	height: 50px;
+	margin-left: -25px;
+	font-size: 15px;
+	padding-top: 15px;
+	opacity: 0.4
+}
+
+.time-date {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	color: #028F79;
+	font-size: 30px;
+	padding: 10px 0;
+	margin-top: 15px;
+	right: 10%;
+	border-bottom: 1px solid #2AB28A;
+	transition:all 0.3s linear;
+}
+
+.time-date.open {
+	opacity: 1;
+	visibility: visible;
+}
+
+#am-task,#pm-task {
+	position: absolute;
+	width: 80%;
+	left: 10%;
+	top: 100px;
+}
+
+.task-add {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	bottom: 25px;
+	border-radius: 50px;
+	background: #117E66;
+	left: 50%;
+	margin-left: -25px;
+	z-index: 20;
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	padding-top: 10px;
+	transition:all 0.1s linear;
+}
+
+.task-add.open {
+	-webkit-transform: rotate(45deg);
+}
+
+.task-edit {
+	position: absolute;
+	right: 0;
+	padding: 10px 10px;
+	bottom: 250px;
+}
+
+.task-edit > div {
+	float: left;
+	display: inline-block;
+	color: #028F79;
+	font-size: 25px;
+	margin: 0 10px;
+}
