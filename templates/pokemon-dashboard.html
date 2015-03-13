@@ -1,0 +1,10 @@
+<ion-view>
+  <ion-content class="pokemon-dashboard"scroll="false">
+    <div class="pokemon-position" 
+    ng-style="{top:checkTop($index)}"
+    ng-class="{'first':$index==0,'list':$index!=0}" 
+    ng-repeat="slots in sixSlots track by slots.id">
+      <div class="pokemon-boxes"></div>
+    </div>
+  </ion-content>
+</ion-view>

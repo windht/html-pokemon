@@ -27,11 +27,13 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('DashCtrl', function(Enemy,$timeout,Scenarios,Events,NPC,$stateParams,Blocks,Transform,Map,Player,Device,$scope,$http,$interval) {
+.controller('DashCtrl', function(Pixel,Game,Enemy,$timeout,Scenarios,Events,NPC,$stateParams,Blocks,Transform,Map,Player,Device,$scope,$http,$interval) {
   $scope.open='';
   $scope.Map=Map;
   $scope.NPC=NPC;
+  $scope.Game=Game;
   $scope.Transform=Transform;
+  
   NPC.people=[
     {
       image:'oldman',
@@ -71,6 +73,11 @@ angular.module('starter.controllers', [])
 
 
   $scope.$on('$ionicView.enter',function(){
+    coolCanvas=document.getElementById('coolCanvas');
+    coolContext=coolCanvas.getContext('2d');
+    window.coolContext=coolContext;
+    window.coolCanvas=coolCanvas;
+    
     Scenarios.interval=$interval(Scenarios.run,200);
     Map.currentMap=$stateParams.place;
     Player.coorX=undefined;
@@ -86,6 +93,23 @@ angular.module('starter.controllers', [])
       //地图阻断器的放置
       Blocks.Building=map.layers[1].data;
       //NPC的产生
+
+
+      $timeout(function(){
+        window.coolCanvas.width=50*32;
+        window.coolCanvas.height=50*32;
+        for (var i=0;i<50;i++){
+          for (var j=0;j<50;j++){
+            var index=i*50+j;
+            var pixelIndex=map.layers[2].data[index];
+            window.coolContext.putImageData(Pixel.outdoor[pixelIndex-3],j*32,i*32);
+          }
+        }
+      },0)
+
+      
+
+
       for (i in NPC.people) {
         Blocks.Npc.push(Transform.coorToArray([NPC.people[i].coorX,NPC.people[i].coorY]));
       }
@@ -113,6 +137,30 @@ angular.module('starter.controllers', [])
     })
   })    
 })
+
+.controller('PokeMonDashCtrl', function($scope) {
+  $scope.sixSlots=[{id:0},{id:1},{id:2},{id:3},{id:4},{id:5}]
+  $scope.checkTop=function(index){
+    if (index==0) {
+      return;
+    }
+    else {
+      return (index-1)*20+'%'
+    }
+  }
+  $scope.$on('$ionicView.enter',function(){
+    
+  })
+})
+
+.controller('BattleCtrl', function($scope) {
+
+  $scope.$on('$ionicView.enter',function(){
+    $('.battle').css('backgroundImage','url(img/battle-ground/1.png)');
+  })
+})
+
+
 
 .controller('EmptyCtrl', function() {
 

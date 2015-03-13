@@ -127,6 +127,31 @@
 	top: 33.33%
 }
 
+.game-menus {
+	position: absolute;
+	width: 100px;
+	height: 70%;
+	top: 10%;
+	background: white;
+	border: 2px solid black;
+	right: 0;
+	z-index: 25;
+}
+
+.game-menus > li {
+	list-style: none;
+	width: 100%;
+	color: black;
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 40px;
+}
+
+.game-menus > li.selected {
+	background: gray;
+}
+
 
 .player-pos {
 	z-index: 20;
@@ -315,142 +340,40 @@ ion-content .scroll {
 	height: 100%;
 }
 
-.time-title {
+.pokemon-dashboard {
+	background: #3498db;
 	width: 100%;
-	height: 50px;
-	text-align: center;
-	opacity: 0;
-	visibility: hidden;
-	color: #028F79;
-	font-size: 30px;
-	padding: 10px 0;
-	border-bottom: 1px solid #2AB28A;
-	transition:all 0.3s linear;
+	height: 100%;
 }
 
-.time-title.show {
-	opacity: 1;
-	visibility: visible;
-}
-
-.time-wrapper {
-	display: inline-block;
-	margin: 0 auto;
+.pokemon-position {
+	position: absolute;
+	width: 50%;
+	height: 20%;
 	padding: 20px;
-	height: 75px;
-	transition:all 0.2s linear;
-	position: relative;
-	width: 90%;
-	height: 150px;
-	
-}
-
-.time-wrapper.small {
-	height: 80px;
-}
-
-.time-wrapper.open {
-	box-shadow: 0px 2px 5px #ABABAB;
-	
-}
-
-.time-wrapper .task-input {
 	text-align: center;
 }
-.time-wrapper.open .task-input {
-	text-align: left;
-}
 
-.time-wrapper.small .task-input {
-	visibility: hidden;
-	opacity: 0;
-}
-
-.time-indicator {
-	width: 75px;
-	height: 75px;
-	text-align: center;
-	border-radius: 50px;
-	background: #27A677;
-	font-size: 25px;
-	padding-top: 25px;
-	position: absolute;
-	color: white;
-	left: 50%;
-	margin-left: -37.5px;
-	transition:all 0.2s linear;
-}
-
-.time-indicator.open {
-	left:50px;
-}
-
-.time-indicator.small {
-	width: 50px;
-	height: 50px;
-	margin-left: -25px;
-	font-size: 15px;
-	padding-top: 15px;
-	opacity: 0.4
-}
-
-.time-date {
-	position: absolute;
-	opacity: 0;
-	visibility: hidden;
-	color: #028F79;
-	font-size: 30px;
-	padding: 10px 0;
-	margin-top: 15px;
-	right: 10%;
-	border-bottom: 1px solid #2AB28A;
-	transition:all 0.3s linear;
-}
-
-.time-date.open {
-	opacity: 1;
-	visibility: visible;
-}
-
-#am-task,#pm-task {
-	position: absolute;
+.pokemon-position > .pokemon-boxes {
+	border: 2px solid black;
 	width: 80%;
-	left: 10%;
-	top: 100px;
+	height: 100%;
+	display: block;
+	margin: 0 auto;
+	max-width: 400px;
 }
 
-.task-add {
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	bottom: 25px;
-	border-radius: 50px;
-	background: #117E66;
+.pokemon-position.first {
+	height: 50%;
+	top: 20%;
+	left: 0%;
+}
+
+.pokemon-position.list {
 	left: 50%;
-	margin-left: -25px;
-	z-index: 20;
-	color: white;
-	text-align: center;
-	font-size: 30px;
-	padding-top: 10px;
-	transition:all 0.1s linear;
 }
 
-.task-add.open {
-	-webkit-transform: rotate(45deg);
-}
-
-.task-edit {
-	position: absolute;
-	right: 0;
-	padding: 10px 10px;
-	bottom: 250px;
-}
-
-.task-edit > div {
-	float: left;
-	display: inline-block;
-	color: #028F79;
-	font-size: 25px;
-	margin: 0 10px;
+.battle {
+	background-repeat: no-repeat;
+	background-size: 100%;
 }

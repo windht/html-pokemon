@@ -9,6 +9,12 @@ angular.module('starter.services', [])
   }
 })
 
+.factory('Pixel',function(){
+  return {
+    outdoor:[]
+  }
+})
+
 .factory('Blocks',function(){
   return {
     Building:[],
@@ -249,6 +255,15 @@ angular.module('starter.services', [])
     39:false, //right
     40:false, // down
     90:false  // z
+  }
+})
+
+.factory('Game',function(){
+  return {
+    menu:false,
+    menuSelected:0,
+    menuItems:[
+      {name:'Map',state:'battle'},{name:'PokeMon',state:'pokemon-dashboard'},{name:'Packs',state:'packs'},{name:'Save'},{name:'Exit'}]
   }
 })
 

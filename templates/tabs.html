@@ -2,10 +2,15 @@
   class="card-container"
   scroll="false"
 >
+		
+	<div class="game-menus" ng-show="Game.menu">
+		<li ng-class="{'selected':Game.menuSelected==$index}" ng-repeat="item in Game.menuItems">{{item.name}}</li>
+	</div>
 	<div class="time-filter"></div>
 	<div class="map"
 		ng-style="{left:Transform.coorToPos('X',Player.coorX)+'px',top:Transform.coorToPos('Y',Player.coorY)+'px',width:Map.width*32+'px',height:Map.height*32+'px'}"
 	>
+		<canvas id="coolCanvas"></canvas>
 		<div class="building"></div>
 		<div class="player" 
 	        ng-class="{'up':Player.direction==1,'right':Player.direction==2,'down':Player.direction==3,'left':Player.direction==4,'moving':Player.moving}"
